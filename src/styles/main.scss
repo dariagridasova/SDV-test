@@ -1,0 +1,186 @@
+$size-xxxl: 1920px;
+$size-xxl: 1280px;
+$size-xl: 1024px;
+$size-m: 720px;
+$size-s: 600px;
+$gradient: linear-gradient(145deg, #E61726, #D4208C);
+$marker-gradient: linear-gradient(145deg, #E51726, #D4208C);
+$button-gradient: linear-gradient(220deg, #D4208C 0.42%, #E61726 82.5%);
+
+@mixin gradient-text($gradient) {
+    background: $gradient;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+}
+
+
+
+.section-registration-instruction {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    max-width: $size-xxxl;
+    padding: 24px 15px 20px 15px;
+    box-sizing: border-box;
+
+    @media (min-width: $size-m) {
+        align-items: stretch;
+        flex-direction: row;
+        justify-content: space-evenly;
+        height: 100vh;
+        gap: 15px;
+        box-sizing: border-box;
+    }
+
+    @media (min-width: $size-xl) {
+        padding: 90px;
+        margin: auto;
+        gap: 36px;
+    }
+    
+}
+
+.SRI-item {
+    @media (min-width: $size-m) {
+        flex-grow: 1;
+        width: 50%;
+    }
+}
+
+.cover {
+    min-height: 274px;
+    min-width: 290px;
+    margin-bottom: 21px;
+    background: url("../assets/images/Group-320.jpg") center center no-repeat;
+
+    @media (min-width: $size-m) {
+        margin-bottom: 0;
+        background: url("../assets/images/Group-720.jpg") center center/contain no-repeat;
+    }
+
+    @media (min-width: $size-xxl) {
+        width: 50%;
+        max-width: 730px;
+    }
+}
+
+.popup-title {
+    line-height: 40px;
+    letter-spacing: -2px;
+    font-size: 35px;
+    @include gradient-text($gradient);
+
+    @media (min-width: $size-xxl) {
+        font-size: 77px;
+        line-height: 84px;
+        letter-spacing: -3.5px;
+    }
+}
+
+
+
+.description {
+    @media (min-width: $size-m) {    
+        display: flex;
+        margin: 0;
+    }
+
+    .popup-title {
+        margin-bottom: 18px;
+        
+        @media (min-width: $size-xxl) {
+            margin-bottom: 52px;
+        }
+    }
+
+    .instruction {
+        padding: 0;
+        margin: 0;
+        font-size: 18px;
+        font-weight: 600;
+        list-style: none;
+        counter-reset: list-counter;
+
+        li {
+            position: relative;
+            display: flex;
+            align-items: center;
+            height: 45px;
+            padding-left: 38px;
+            margin-bottom: 19px;
+            counter-increment: list-counter;
+            letter-spacing: -0.5px;
+
+            &::before {
+                content: counter(list-counter) ".";
+
+                position: absolute;
+                top: 0;
+                left: 0;
+                font-size: 33px;
+                font-weight: 800;
+                
+                @include gradient-text($marker-gradient);
+
+                @media (min-width: $size-xxl) {
+                    font-size: 55px;
+                }
+            }
+
+            @media (min-width: $size-xxl) {
+                height: 75px;
+                padding-left: 64px;
+                margin-bottom: 32px;
+                font-size: 38px;
+                letter-spacing: -2px;
+            }
+        }
+    }
+}
+
+.text-container {
+    max-width: 290px;
+    margin: 0 auto;
+
+    @media (min-width: $size-m) {
+        max-width: 100%;
+        margin: auto;
+    }
+
+    @media (min-width: $size-xxl) {
+        max-width: 480px;
+        padding-top: 25px;
+    }
+}
+
+.btn-container {
+    height: 80px;
+}
+
+.action-btn {
+    width: 100%;
+    border: 0;
+    padding: 15px;
+    margin: 0;
+    font-size: 13px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #fff;
+    overflow: visible;
+    background: $button-gradient;
+    border-radius: 6px;
+    outline: none;
+
+    @media (min-width: $size-xxl) {
+        position: relative;
+        height: 100%;
+        min-height: 80px;
+        max-width: 388px;
+        font-size: 23px;
+        letter-spacing: -1px;
+    }
+}

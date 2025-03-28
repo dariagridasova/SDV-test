@@ -1,0 +1,17 @@
+@font-face {
+    font-family: "Open Sans";
+    src: local("Open Sans"),
+         url("../assets/fonts/OpenSans-ExtraBold.ttf") format("truetype");
+}
+
+html, body,
+h1, h2, h3, h4, h5, h6,
+p,
+ul, li,
+div {
+    margin: 0;
+    padding: 0;
+    font-family: "Open Sans", sans-serif;
+    letter-spacing: -1px;
+    color: #3A3A3A;
+}

@@ -1,0 +1,200 @@
+$size-xxl: 1280px;
+$size-xl: 1024px;
+$size-m: 720px;
+$size-s: 600px;
+
+$input-placholder-color: #b3b3b3;
+$error-color: #F22533;
+
+.registration-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+
+    @media (min-width: $size-m) {
+        max-width: 620px;
+        margin: 0 auto;
+        gap: 30px;
+    }
+
+    .form-btn {
+        position: relative;
+        left: 50%;
+        max-width: 166px;
+        margin-left: -83px;
+
+        @media (min-width: $size-m) {
+            min-height: 80px;
+            max-width: 388px;
+            margin-left: -194px;
+            font-size: 23px;
+            letter-spacing: 2px;
+        }
+    }
+}
+
+.popup-container {
+    position: relative;
+    width: 100%;
+    max-width: 1270px;
+    padding: 72px 15px;
+    margin: 20px;
+    background: #fff;
+    box-shadow: 0px 0px 10px 0px #0000001A;
+    border-radius: 20px;
+    z-index: 2;
+
+    @media (min-width: $size-s) {
+        padding-left: 45px;
+        padding-right: 45px;
+    }
+
+    @media (min-width: $size-xl) {
+        padding-top: 150px;
+        padding-bottom: 150px;
+        box-sizing: border-box;
+        border-radius: 50px;
+    }
+
+    @media (min-width: $size-xxl) {
+        padding-top: 136px;
+        padding-bottom: 136px;
+        min-height: 652px;
+    }    
+
+    &.complete {
+        padding: 175px 26px;        
+        
+        @media (min-width: $size-xxl) {
+            padding-top: 220px;
+            padding-bottom: 220px;
+        }
+
+        .registration-form {
+            display: none;
+        }
+
+        .complete-message {
+            display: block;
+        }    
+    }
+}
+
+.form-title {
+    padding-bottom: 10px;
+    font-size: 17px;
+    font-weight: 700;
+    line-height: 24px;
+    text-align: center;
+
+    @media (min-width: $size-m) {
+        padding-bottom: 24px;
+        font-size: 24px;
+        font-weight: 700;
+        line-height: 28px;
+        letter-spacing: -1.3px;
+    }
+}
+
+.form-group {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 60px;
+}
+
+.form-input {
+    width: 100%;
+    min-height: 22px;
+    padding-bottom: 5px;
+    margin: 0;
+    border: none;
+    font-weight: 400;
+    font-size: 14px;
+    text-align: center;
+    outline: none;
+    box-sizing: border-box;
+
+    &::placeholder {
+        color: $input-placholder-color;
+    }
+
+    &:focus,
+    &:valid,
+    &:not(:placeholder-shown) {
+        background-color: transparent;
+    }
+    
+    @media (min-width: $size-m) {
+        font-size: 18px;
+        line-height: 24px;
+        letter-spacing: 0;
+    }
+}
+
+.error-message {
+    display: none;
+    padding-top: 7px;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 18px;
+    text-align: center;
+    color: $error-color;
+
+    @media (min-width: $size-xxl) {
+        padding-top: 14px;
+    }
+
+    &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        height: 24px;
+        width: 24px;
+        background: url("../assets//images/field.svg") no-repeat;
+    }
+}
+
+.error-message.active {
+    display: block;
+}
+
+.line {
+    border-top: solid 1px rgba(58, 58, 58, 0.5);
+
+    &.active {
+        border-top-color: $error-color;
+        transition: background-color 0.5s ease;
+
+        .error-message {
+            display: block;
+        }
+    }
+}
+
+.complete-message {
+    display: none;
+    text-align: center;
+
+    .text {
+        padding: 0 15px;
+        font-size: 14px;
+        font-weight: 700;
+        line-height: 100%;
+        letter-spacing: -0.5px;
+
+        @media (min-width: $size-xxl) {
+            font-size: 28px;
+        }
+    }
+
+    .popup-title {
+        padding-bottom: 12px;
+
+        @media (min-width: $size-xxl) {
+            padding-bottom: 20px;
+        }
+    }
+}
